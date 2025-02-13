@@ -377,6 +377,14 @@ table th {
 .admin-product-btn--modify {
   border-bottom-right-radius: 15px;
 }
+#search-bar {
+  display: flex;
+  flex-direction: column;
+}
+#search-bar input {
+  max-width: 200px;
+  margin-bottom: 0.5rem;
+}
 
 
 @media screen and (min-width: 768px) {

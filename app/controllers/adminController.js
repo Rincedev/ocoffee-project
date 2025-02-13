@@ -141,6 +141,18 @@ const adminController = {
       console.error("Erreur lors de la modification du produit :", error);
       res.status(500).send("Serveur en PLS :(");
     }
+  },
+
+  async foundProductsByNameOrReference(req, res) {
+    try {
+      const search = req.query.search;
+      console.log(search)
+      const foundProducts = await dataMapper.getProductsByNameOrReference(search);
+      res.render("modify-product-search", { foundProducts, title: " - Admin" });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Serveur en PLS :(");
+    }
   }
 }
 

@@ -56,8 +56,16 @@ const dataMapper = {
     } catch (error) {
       console.error("Erreur lors de la modification dans la database :", error);
       res.status(500).send("Serveur en PLS :(");
-    }
-    
+    }    
+  },
+
+  async getProductsByNameOrReference(search) {
+    console.log(search)
+    const query = search.match(/^\d+$/)
+      ? "SELECT * FROM product WHERE reference_number = $1"
+      : "SELECT * FROM product WHERE name ILIKE $1";
+    const result = await client.query(query, [search])
+    return result.rows;
   }
 
 

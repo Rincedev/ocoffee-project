@@ -26,6 +26,7 @@ router.get("/admin", isAdmin, adminController.renderAdminPage)
 router.get("/admin/product/add", adminController.renderAddProductPage);
 router.post("/admin/product/add", upload.single('uploaded_file'), adminController.addProductToDatabase);
 router.get("/admin/product/modify", adminController.renderModifyProductsPage)
+router.get("/admin/product/modify/search", adminController.foundProductsByNameOrReference)
 router.get("/admin/product/delete/:id", adminController.deleteProductFromDatabase)
 router.get("/admin/product/modify/:id", adminController.renderModifyProductPage)
 router.post("/admin/product/modify", adminController.modifyProduct)
