@@ -1,0 +1,475 @@
+@font-face {
+  font-family: Yeseva;
+  src: url(../assets/fonts/YesevaOne-Regular.ttf);
+}
+@font-face {
+  font-family: Josefin;
+  src: url(../assets/fonts/JosefinSans-VariableFont_wght.ttf);
+}
+:root {
+  --primary-color: #402b19;
+  --secondary-color: #f2eadf;
+  --accent-color: #593e25;
+  --light-color: #bfb3a8;
+  --dark-color: #26160c;
+}
+* {
+  font-family: Josefin;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: Yeseva;
+}
+html {
+  background-color: var(--light-color);
+}
+body {
+  color: var(--primary-color);
+}
+
+.navbar.is-fixed-top {
+  z-index: 1200;
+  height: 6rem;
+  padding-top: 0.6rem;
+}
+main {
+  margin-top: 6rem;
+  width: 100%;
+}
+
+.columns {
+  margin-bottom: 0;
+}
+#title-link:hover {
+  background-color: var(--accent-color);
+}
+.navbar-item:hover {
+  background-color: var(--primary-color);
+}
+.navbar,
+#navbarMenu,
+.card {
+  background-color: var(--accent-color);
+}
+
+.navbar-item,
+.navbar-burger,
+.nav-title {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+.nav-title {
+  font-size: 2.5rem;
+}
+section {
+  padding: 0;
+  margin: 0;
+}
+.presentation-container {
+  display: flex;
+  flex-direction: column;
+}
+.presentation-text-container {
+  padding: 4rem;
+}
+.presentation-img-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 4rem;
+}
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+h4 {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+h5 {
+  color: var(--light-color);
+  font-weight: bold;
+}
+p {
+  margin-bottom: 0.5rem;
+}
+.btn {
+  box-shadow: 0px 0px 8px 2px var(--light-color);
+  padding: 5px 10px 5px 10px;
+  background: var(--dark-color);
+  color: var(--light-color);
+  border-radius: 30px;
+  transition: 0.3s;
+  max-width: 200px;
+}
+.btn:hover {
+  scale: 1.1;
+}
+
+.slider-container {
+  position: relative;
+  background-color: var(--primary-color);
+}
+.slider-container h3 {
+  color: var(--light-color);
+  text-align: center;
+  padding-top: 2rem;
+}
+.slider {
+  display: flex;
+  flex-direction: row;
+  padding: 3rem;
+  overflow-x: auto;
+  gap: 6rem;
+}
+.coffee-card {
+  background-color: var(--accent-color);
+  color: var(--light-color);
+  min-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 0px 8px 2px var(--light-color);
+}
+.card-img {
+  height: 220px;
+  width: 100%;
+}
+.coffee-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.card-text-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.4rem;
+  padding-top: 1rem;
+  height: 300px;
+}
+.card-text-content .btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.price-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.icon img {
+  height: 1rem;
+}
+.arrow-icon {
+  height: 40px;
+  z-index: 1000;
+  transition: 0.3s;
+}
+.arrow-icon:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+#arrow-icon--left {
+  position: absolute;
+  top: 50%;
+}
+#arrow-icon--right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+.slider::-webkit-scrollbar {
+  display: none;
+}
+footer {
+  background-color: var(--accent-color);
+  height: 80px;
+  color: var(--dark-color);
+  text-align: center;
+  padding-top: 2rem;
+}
+#catalog-banner {
+  padding: 6rem;
+  background: center/cover
+    url(../assets/ffc_je-m-informe_comment-reduire-les-risques_je-mange-equilibre-la-polemique-du-cafe.jpg);
+}
+#catalog-banner h1 {
+  text-align: center;
+  color: var(--secondary-color);
+  text-shadow: 2px 2px 2px var(--primary-color);
+}
+#catalog-form {
+  padding-top: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--light-color);
+  align-items: end;
+}
+#view-all-btn {
+  position: absolute;
+  left: 45%;
+  bottom: 2rem;
+}
+.product-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  background: var(--primary-color);
+}
+.product-infos {
+  background: var(--light-color);
+  width: 80%;
+  height: 100%;
+
+  padding: 1rem;
+  padding-top: 1rem;
+  color: var(--primary-color);
+}
+.product-infos h5 {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+.product-price-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.product-img {
+  max-width: 80%;
+  min-width: 80%;
+  height: 300px;
+}
+.product-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.add-product-title, #contact-title {
+  font-size: 2rem;
+  padding: 2rem;
+  padding-bottom: 0;
+  
+}
+#add-product-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+#delete-product-form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+#description, #contact-message {
+  resize: none;
+  height: 100px;
+}
+#add-product-form button {
+  margin-top: 2rem;
+}
+#delete-product-form button {
+  margin-top: 2rem;
+}
+
+#contact-form-container {
+  padding: 2rem;
+  padding-top: 1rem;
+}
+#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+#contact-message {
+  margin-bottom: 2rem;
+}
+.contact-titles {
+  padding: 2rem 2rem 1rem 2rem ;
+  text-align: center;
+}
+table, tr, td, th {
+  border: 1px solid var(--primary-color);
+  padding: 0.5rem;  
+}
+table th {
+  color: var(--primary-color);  
+}
+.contact-container {
+  padding: 2rem;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.admin-main {
+  padding: 3rem;
+}
+#admin-connect-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+.admin-page-title {
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+#admin-connect-form {
+  display: flex;
+  flex-direction: column;
+}
+#admin-connect-form button {
+  margin-top: 2rem;
+}
+#admin-page-links {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-around;
+  height: 250px;  
+}
+#admin-page-links a {
+  max-width: 300px;
+}
+.admin-logout-btn {
+  margin: 2rem;
+  
+}
+.admin-catalog {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.admin-product-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.admin-product-btn {
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--dark-color);
+  background: var(--accent-color);
+  color: var(--light-color);
+  transition: 0.3s;  
+}
+.admin-product-btn:hover {
+  background: var(--primary-color);
+}
+.admin-product-btn--delete {
+  border-bottom-left-radius: 15px;
+}
+.admin-product-btn--modify {
+  border-bottom-right-radius: 15px;
+}
+
+
+@media screen and (min-width: 768px) {
+  .presentation-container,
+  .product-container {
+    flex-direction: row;
+  }
+  .presentation-img-container {
+    min-width: 40%;
+    min-height: 100%;
+  }
+  .slider {
+    padding: 3rem;
+    gap: none;
+  }
+  .coffee-card {
+    max-width: 45%;
+    min-width: 45%;
+  }
+  .slider-container {
+    padding-bottom: 3rem;
+  }
+  #view-all-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+  }
+  .product-container {
+    height: 85vh;
+  }
+  .product-infos {
+    width: 60%;
+    height: 100%;
+    padding: 5rem;
+    padding-top: 10rem;
+  }
+  .product-img {
+    max-width: 50%;
+    min-width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .product-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  #add-product-form {    
+    padding: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
+  #delete-product-form {
+    padding: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
+  #contact-form-container {
+    padding: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
+  .add-product-title {
+    text-align: center;
+  }
+  .admin-catalog {
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+}
+@media screen and (min-width: 1400px) {
+  .arrow-icon {
+    display: none;
+  }
+  .coffee-card {
+    max-width: 30%;
+    min-width: 30%;
+  }
+  .all-product-card {
+    max-width: 20%;
+    min-width: 20%;
+  }
+  .slider {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .all-catalog-slider {
+    justify-content: center;
+    flex-wrap: wrap;
+  }  
+}

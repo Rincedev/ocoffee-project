@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+<main>
+  <div class="product-container">
+    <div class="product-infos">
+      <h4 class=""><%= product.name %></h4>
+      <h5 class="">Origine : <%= product.origin %></h5>
+      <p>
+        Caractéristique principale : <%= product.category %>
+      </p>
+      <h5>Description :</h5>
+      <p>
+        <%= product.description %>
+      </p>
+      <div class="product-price-container">
+        <h5>Prix au kilo : <%= product.price %> €</h5>
+        <p>Disponible : 
+          <% if (!product.available) {%>
+            Non
+          <% } else { %>  
+            Oui
+          <% }; %>  
+          </p>
+      </div>
+    </div>
+    <div class="product-img">
+      <img src="/assets/coffees/<%= product.reference_number %>.png" alt="" />
+    </div>
+  </div>
+</main>
+<%- include("partials/footer") %>

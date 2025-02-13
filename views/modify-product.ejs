@@ -1,0 +1,38 @@
+  <%- include('partials/header') %>
+
+<main class="admin-main">
+  <a class="btn admin-logout-btn" href="/logout">Se déconnecter</a>
+  <h2 class="add-product-title">Modifier un produit du catalogue</h2>
+  <form id="add-product-form" action="/admin/product/modify" method="post">
+    <input type="hidden" name="id" value="<%= product.id %>">    
+    <label for="name">Nom</label>
+    <input type="text" name="name" id="name" placeholder="Nom du produit" value="<%= product.name %>">
+    <label for="origin">Origine</label>
+    <input type="text" name="origin" id="origin" placeholder="Pays d'origine" value="<%= product.origin %>">
+    <label for="category">Choisissez la catégorie</label>
+    <select name="category" id="category-select">      
+      <% allCategories.forEach(cat => { %>
+      <option value="<%= cat.category %>"><%= cat.category %></option>
+      <% }); %>
+    </select>
+    <label for="price">Prix au kilo</label>
+    <input type="number" step="0.01" name="price" id="price" value="<%= product.price %>">
+    <label for="reference_number">N° de référence</label>
+    <input type="number" name="reference_number" class="reference_number" value="<%= product.reference_number %>">
+    <legend>Disponible</legend>
+    <div>      
+      <input type="radio" name="available" value="true" checked>
+      <label for="available">Oui</label>  
+    </div>
+    <div>      
+      <input type="radio" name="available" value="false">
+      <label for="available">Non</label>
+    </div>
+    <label for="description">Description du produit</label>
+    <textarea name="description" id="description" placeholder="Entrez la description du produit ici..."><%= product.description %>"</textarea>    
+    <button class="btn">Modifier</button>
+</main>
+
+  <%- include('partials/footer') %>
+  
+  

@@ -1,0 +1,13 @@
+<div id="catalog-banner">  
+  <h1>Notre catalogue</h1>
+</div>
+<div class="slider-container">
+  <form id="catalog-form" action="/catalog/category" method="get">
+    <label for="category">Trier par catégorie</label>
+    <select name="category" id="category-select" onchange="this.form.submit()">
+      <option value="">Choisissez une catégorie</option>
+      <% allCategories.forEach(cat => { %>
+      <option value="<%= cat.category %>"><%= cat.category %></option>
+      <% }); %>
+    </select>
+  </form>

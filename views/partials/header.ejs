@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <title>O'Coffee<%= title %></title>
+  </head>
+  <body class="is-light">
+    <header>
+      <nav
+        class="navbar is-fixed-top"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="container">
+          <div class="navbar-brand">
+            <a id="title-link" class="navbar-item" href="/">
+              <img
+                src="/assets/logo.svg"
+                alt="O'Coffee logo"
+                style="max-height: 50px; margin-right: 10px"
+              />
+              <h2 class="nav-title">O'Coffee</h2>
+            </a>
+            <a
+              role="button"
+              class="navbar-burger"
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="navbarMenu"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="/">Accueil</a>
+              <a class="navbar-item" href="/catalog">Catalogue</a>
+              <a class="navbar-item" href="/about">À propos</a>
+              <a class="navbar-item" href="/contact">Nous contacter</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>

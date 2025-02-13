@@ -1,0 +1,103 @@
+<%- include('partials/header') %>
+
+<main>
+  <h3 class="contact-titles">Nous contacter</h3>
+  <section id="contact-form-container">    
+    <form id="contact-form">
+      <!-- To simplify the tutorial, the value is static. -->
+      <input type="hidden" name="contact_number" id="contact_number">
+      <label>Nom et Prénom</label>
+      <input type="text" name="user_name" placeholder="Vos nom et prénom">
+      <label>Email</label>
+      <input type="email" name="user_email" placeholder="Votre email">
+      <label>Message</label>
+      <textarea name="message" id="contact-message" placeholder="Votre message ici..."></textarea>
+      <input class="btn" type="submit" value="Envoyer">
+  </form>
+  </section>
+  <section>
+    <h3 class="contact-titles">Venir à la boutique</h3>
+    <div class="contact-container">
+      <h4 class="contact-titles">O'Coffee</h4>
+    <ul>
+      <li><span class="icon-text">
+        <span class="icon">
+          <i class="fas fa-phone"></i>
+        </span>
+        <span>04.73.55.68.25</span>
+      </span></li>
+      <li><span class="icon-text">
+        <span class="icon">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span>ocoffee@gmail.com</span>
+      </span></li>
+    </ul>
+    <h4 class="contact-titles">Adresse</h4>
+      <ul>
+        <li>8, avenue des Etats-Unis</li>
+        <li>63000 CLERMONT-FERRAND</li>
+      </ul>
+    </div>
+    <div class="contact-container">
+      <h4 class="contact-titles">Horaires d'ouverture</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>Jours</th>
+            <th>Matin</th>
+            <th>Après-Midi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lundi</td>
+            <td>Fermé</td>
+            <td>Fermé</td>
+          </tr>
+          <tr>
+            <td>Mardi</td>
+            <td>8H - 12H</td>
+            <td>13H30 - 17H30</td>
+          </tr>
+          <tr>
+            <td>Mercredi</td>
+            <td>8H - 12H</td>
+            <td>13H30 - 17H30</td>
+          </tr>
+          <tr>
+            <td>Jeudi</td>
+            <td>8H - 12H</td>
+            <td>13H30 - 17H30</td>
+          </tr>
+          <tr>
+            <td>Vendredi</td>
+            <td>8H - 12H</td>
+            <td>13H30 - 17H30</td>
+          </tr>
+          <tr>
+            <td>Samedi</td>
+            <td>8H - 12H</td>
+            <td>Fermé</td>
+          </tr>
+          <tr>
+            <td>Dimanche</td>
+            <td>Fermé</td>
+            <td>Fermé</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    
+    <div><iframe width="100%" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=8,%20avenue%20des%20Etats-Unis%2063000%20Clermont-Ferrand+(O'Coffee)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">cat gps tracker</a></iframe></div>
+  </section>
+  
+  
+  
+</main>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script defer src="/js/contact.js"></script>
+
+
+<%- include('partials/footer') %>

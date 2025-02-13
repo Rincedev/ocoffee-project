@@ -1,0 +1,41 @@
+{
+  "name": "s09-ocoffee-rincedev",
+  "engines": {
+  "node": "22.x"
+  },
+  "version": "1.0.0",
+  "description": "[Le projet](./docs/demande-client/)",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch server.js",
+    "deploy": "bash init-db.sh",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Sushi/S09-ocoffee-Rincedev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Sushi/S09-ocoffee-Rincedev/issues"
+  },
+  "homepage": "https://github.com/O-clock-Sushi/S09-ocoffee-Rincedev#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "path": "^0.12.7",
+    "pg": "^8.13.1"
+  }
+}

@@ -1,0 +1,48 @@
+<%- include('partials/header') %>
+
+<main class="admin-main">
+  <a class="btn admin-logout-btn" href="/logout">Se déconnecter</a>
+  <h2 class="add-product-title">Supprimer ou modifier un produit du catalogue</h2>
+  
+  <div class="admin-catalog">    
+    <% allProducts.forEach(product => { %>
+      <div class="coffee-card all-product-card">
+        <div class="card-img">
+          <img src="/assets/coffees/<%= product.reference_number %>.png" alt="" />
+        </div>
+        <div class="card-text-content">
+          <h4><%= product.name %></h4>
+          <h5>Origine : <%= product.origin %></h5>
+          <p>
+            Caractéristique principale : <%= product.category %>
+          </p>
+          <h5>Description :</h5>
+          <p>
+            <%= product.description %>
+          </p>
+          <div class="price-container">
+            <h5>Prix au kilo : <%= product.price %> €</h5>
+            <p>Disponible : 
+              <% if (!product.available) {%>
+                Non
+              <% } else { %>  
+                Oui
+              <% }; %>  
+              </p>
+          </div>
+          <a class="btn" href="/product/<%= product.id %>">Découvrir</a>
+        </div>
+        <div class="admin-product-btn-container">
+          <a class="admin-product-btn admin-product-btn--delete" href="/admin/product/delete/<%= product.id %>" data-product-name="<%= product.name %>" onclick="return confirmDeletion(event, this)">Supprimer</a>
+          <a class="admin-product-btn admin-product-btn--modify" href="/admin/product/modify/<%= product.id %>">Modifier</a>
+        </div>
+        
+      </div>
+    <% }); %> 
+  
+  </div>  
+</main>
+
+<script defer src="/js/admin.js"></script>
+
+<%- include('partials/footer') %>

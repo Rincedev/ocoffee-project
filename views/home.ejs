@@ -1,0 +1,89 @@
+<%- include("partials/header") %>
+<main>
+  <section class="presentation-container">
+    <div class="presentation-text-container">
+      <h1 class="">O'Coffee</h1>
+      <h3 class="">Qui sommes-nous ?</h3>
+      <p>
+        Jean et Jacques Pepper, deux frères passionnés par le café, sont les
+        fondateurs de notre boutique. Avec une expertise approfondie et un amour
+        profond pour cette délicieuse boisson, ils ont créé un espace où le café
+        est célébré comme une expérience raffinée et inspirante.
+      </p>
+      <h3>Ambiance de la boutique</h3>
+      <p>
+        Bienvenue dans notre boutique, où règne une ambiance chaleureuse et
+        accueillante qui éveille tous vos sens. Dès que vous franchissez la
+        porte, vous êtes enveloppé d'une douce symphonie d'arômes envoûtants de
+        café fraîchement moulu. <br />
+        <br />
+
+        L'atmosphère est empreinte d'une lueur chaleureuse, avec des lumières
+        tamisées qui créent des jeux d'ombres et de lumières apaisants. Les murs
+        sont ornés d'éléments rustiques, de panneaux en bois et de photographies
+        captivantes de plantations de café, évoquant l'origine de ces délices
+        aromatiques. <br />
+        <br />
+
+        Les étagères en bois exposent fièrement une variété de grains de café
+        provenant des quatre coins du monde, chacun racontant une histoire
+        unique de terroir et de culture. Les sacs de café empilés dévoilent une
+        palette de couleurs allant des tons chocolat aux nuances ambrées,
+        invitant à l'exploration sensorielle...
+      </p>
+      <a class="btn" href="/about">Lire la suite</a>
+    </div>
+    <div class="presentation-img-container">
+      <img src="/assets/about.jpg" alt="Table avec des tasses de café" />
+    </div>
+  </section>
+  <div class="slider-container">
+    <h3>Nouveautés</h3>
+    <span
+      ><img
+        id="arrow-icon--left"
+        class="arrow-icon"
+        src="/assets/fleche-fine-contour-vers-la-gauche.png"
+        alt="Scroll right button"
+    /></span>
+    <div class="slider">
+      <% newProducts.forEach(product => { %>
+        <div class="coffee-card">
+          <div class="card-img">
+            <img src="/assets/coffees/<%= product.reference_number %>.png" alt="" />
+          </div>
+          <div class="card-text-content">
+            <h4><%= product.name %></h4>
+            <h5>Origine : <%= product.origin %></h5>
+            <p>
+              Caractéristique principale : <%= product.category %>
+            </p>
+            <h5>Description :</h5>
+            <p>
+              <%= product.description %>
+            </p>
+            <div class="price-container">
+              <h5>Prix au kilo : <%= product.price %> €</h5>
+              <p>Disponible : 
+                <% if (!product.available) {%>
+                  Non
+                <% } else { %>  
+                  Oui
+                <% }; %>  
+                </p>
+            </div>
+            <a class="btn" href="/product/<%= product.id %>">Découvrir</a>
+          </div>
+        </div>
+      <% }); %>
+      <a id="view-all-btn" class="btn" href="/catalog/all">Voir tous nos produits</a>
+    <span
+      ><img
+        id="arrow-icon--right"
+        class="arrow-icon"
+        src="/assets/fleche-droite.png"
+        alt="Scroll right button"
+    /></span>
+  </div>
+</main>
+<%- include("partials/footer") %>
