@@ -13,7 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch server.js",
-    "deploy": "bash init-db.sh",
+    "initdb": "bash init-db.sh",
     "start": "node server.js"
   },
   "repository": {
