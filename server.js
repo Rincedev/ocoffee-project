@@ -13,18 +13,6 @@ export default __dirname;
 
 const app = express();
 
-if (process.env.INIT_DB === "true") {
-  
-  exec("npm run initdb", (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Erreur lors de l'initialisation de la DB: ${error.message}`);
-      return;
-    }
-    console.log(`STDOUT: ${stdout}`);
-    console.error(`STDERR: ${stderr}`);
-  });
-}
-
 app.use(session({
   secret: process.env.SECRET_SESSION,
   resave: false,
