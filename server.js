@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import session from 'express-session';
 import router from './app/router.js';
+import { exec } from "child_process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +14,7 @@ export default __dirname;
 const app = express();
 
 if (process.env.INIT_DB === "true") {
-  const { exec } = require("child_process");
+  
   exec("npm run initdb", (error, stdout, stderr) => {
     if (error) {
       console.error(`Erreur lors de l'initialisation de la DB: ${error.message}`);
