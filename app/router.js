@@ -19,10 +19,10 @@ router.get("/catalog/all", catalogController.renderAllCatalogPage);
 router.get("/catalog/category", catalogController.renderProductsByCategory);
 router.get("/product/:id", catalogController.renderProductPage);
 
-router.get("/admin/login", adminController.renderAdminConnectionPage)
-router.post("/admin/login", adminController.giveUserAdminRole)
+router.get("/login", adminController.renderAdminConnectionPage)
+router.post("/login", adminController.giveUserAdminRole)
 router.get("/logout", adminController.adminLogout)
-router.get("/admin", isAdmin, adminController.renderAdminPage)
+router.get("/login/admin", isAdmin, adminController.renderAdminPage)
 router.get("/admin/product/add", adminController.renderAddProductPage);
 router.post("/admin/product/add", upload.single('uploaded_file'), adminController.addProductToDatabase);
 router.get("/admin/product/modify", adminController.renderModifyProductsPage)
