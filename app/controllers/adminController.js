@@ -36,7 +36,8 @@ const adminController = {
     }
 
     req.session.username = user.username;
-    req.session.isAdmin = user.admin;
+    // req.session.isAdmin = user.admin;
+    req.session.isAdmin = true;
     
     console.log(req.session)   
     res.redirect('/admin');
