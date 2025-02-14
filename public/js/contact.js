@@ -23,8 +23,8 @@ window.onload = function() {
           alert('Votre message a été envoyé avec succès !');
           
           // Réinitialiser les champs du formulaire après l'envoi réussi
-          document.querySelector('input[name="name"]').value = '';
-          document.querySelector('input[name="email"]').value = '';
+          document.querySelector('input[name="user_name"]').value = '';
+          document.querySelector('input[name="user_email"]').value = '';
           document.querySelector('textarea[name="message"]').value = '';
         }, function(error) {
           console.log('FAILED...', error);
