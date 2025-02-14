@@ -22,10 +22,10 @@ const adminController = {
 
     // Fonction bcrypt.hash pour recréer le mdp si besoin
 
-    // bcrypt.hash(password, 10, (err, hashedPassword) => {
-    //   if (err) throw err;
-    //   console.log(hashedPassword);  // Copie ce hash dans adminUser.password
-    // });
+    bcrypt.hash(password, 10, (err, hashedPassword) => {
+      if (err) throw err;
+      console.log(hashedPassword);  // Copie ce hash dans adminUser.password
+    });
 
     const user = await dataMapper.getUserByUsername(username); 
      
