@@ -5,6 +5,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import session from 'express-session';
 import router from './app/router.js';
+import pgSession from "connect-pg-simple";
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -13,12 +15,31 @@ export default __dirname;
 
 const app = express();
 
-app.use(session({
-  secret: process.env.SECRET_SESSION,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: true }
-}));
+const pool = new pg.Pool({
+  connectionString: process.env.DATABASE_URL, // Assure-toi que cette variable est définie dans ton environnement
+  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
+});
+
+// Configuration de pg-connect-simple avec PostgreSQL
+const store = new pgSession(session)({
+  pool: pool, // La connexion à la base de données
+  tableName: 'session', // Nom de la table pour stocker les sessions
+});
+
+// Configuration de express-session
+app.use(
+  session({
+    store: store, // Le store PostgreSQL
+    secret: process.env.SESSION_SECRET, // Défini ton secret ici
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // Utiliser secure en production
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24, // Durée de la session (ici 1 jour)
+    },
+  })
+);
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');

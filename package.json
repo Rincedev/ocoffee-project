@@ -1,7 +1,7 @@
 {
   "name": "s09-ocoffee-rincedev",
   "engines": {
-  "node": "22.x"
+    "node": "22.x"
   },
   "version": "1.0.0",
   "description": "[Le projet](./docs/demande-client/)",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch server.js",    
+    "dev": "node --watch server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/O-clock-Sushi/S09-ocoffee-Rincedev#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-pg-simple": "^10.0.0",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
