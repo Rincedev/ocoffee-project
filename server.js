@@ -22,12 +22,21 @@ async function startServer() {
     // Création du client Redis en production
     const redisClient = createClient({ url: process.env.REDIS_URL,  socket: { family: 4 } });
     
-
-    await redisClient.connect();
     redisClient.on("error", (err) => console.error("❌ Redis Error:", err));
     redisClient.on("reconnecting", () => console.log("🔄 Redis essaie de se reconnecter..."));
     redisClient.on("end", () => console.log("🚨 Redis connexion terminée"));
     redisClient.on("error", (err) => console.error("Redis Error:", err));
+    
+    (async () => {
+      try {
+          await redisClient.connect();
+          console.log("✅ Redis connecté !");
+      } catch (err) {
+          console.error("❌ Impossible de connecter Redis:", err);
+      }
+  })();
+    
+    
 
     const redisStore = new RedisStore({
       client: redisClient,
