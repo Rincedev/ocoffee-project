@@ -26,7 +26,7 @@ async function startServer() {
     redisClient.on("reconnecting", () => console.log("🔄 Redis essaie de se reconnecter..."));
     redisClient.on("end", () => console.log("🚨 Redis connexion terminée"));
     redisClient.on("error", (err) => console.error("Redis Error:", err));
-    
+
     (async () => {
       try {
           await redisClient.connect();
@@ -48,7 +48,7 @@ async function startServer() {
       secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
-      cookie: { secure: true, httpOnly: true, maxAge: 1000 * 60 * 60 * 24 },
+      cookie: { secure: true, httpOnly: true, maxAge: 1000 * 60 * 60 * 24, sameSite: 'None' },
     });
   } else {
     // Utilisation de la session Express classique en développement
