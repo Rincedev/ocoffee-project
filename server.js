@@ -3,6 +3,7 @@ import express from "express";
 import localsMiddleware from './app/middleware/locals-middleware.js';
 import path from "path";
 import { fileURLToPath } from "url";
+import pg from "pg";
 import session from 'express-session';
 import router from './app/router.js';
 import pgSession from "connect-pg-simple";
