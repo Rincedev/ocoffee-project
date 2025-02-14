@@ -35,7 +35,7 @@ const adminController = {
       return res.status(401).json({ message: "Mot de passe incorrect" });
     }
 
-    req.session.user = {
+    req.session = {
     username: user.username,
     isAdmin: user.admin    
     };
