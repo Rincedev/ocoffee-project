@@ -22,7 +22,7 @@ const pool = new pg.Pool({
 });
 
 // Configuration de pg-connect-simple avec PostgreSQL
-const store = new pgSession(session)({
+const store = new (pgSession(session))({
   pool: pool, // La connexion à la base de données
   tableName: 'session', // Nom de la table pour stocker les sessions
 });
