@@ -17,7 +17,7 @@ export default __dirname;
 const app = express();
 
 const pool = new pg.Pool({
-  connectionString: process.env.DATABASE_URL, // Assure-toi que cette variable est définie dans ton environnement
+  connectionString: process.env.PG_URL, // Assure-toi que cette variable est définie dans ton environnement
   ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
 });
 
