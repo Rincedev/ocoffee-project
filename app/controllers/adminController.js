@@ -35,11 +35,9 @@ const adminController = {
       return res.status(401).json({ message: "Mot de passe incorrect" });
     }
 
-    req.session.username = user.username
-    req.session.isAdmin = user.admin
+    req.session.username = user.username;
+    req.session.isAdmin = user.admin;
     
-        
-    };
     console.log(req.session)   
     res.redirect('/admin');
     
