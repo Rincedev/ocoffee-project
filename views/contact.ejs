@@ -3,8 +3,7 @@
 <main>
   <h3 class="contact-titles">Nous contacter</h3>
   <section id="contact-form-container">    
-    <form id="contact-form">
-      <!-- To simplify the tutorial, the value is static. -->
+    <form id="contact-form">      
       <input type="hidden" name="contact_number" id="contact_number">
       <label>Nom et Prénom</label>
       <input type="text" name="user_name" placeholder="Vos nom et prénom">
@@ -12,6 +11,7 @@
       <input type="email" name="user_email" placeholder="Votre email">
       <label>Message</label>
       <textarea name="message" id="contact-message" placeholder="Votre message ici..."></textarea>
+      <div class="g-recaptcha" data-sitekey="6Ld0_NYqAAAAACzmWzW2J_dGeWfaxMExl8dJJ9KM"></div>
       <input class="btn" type="submit" value="Envoyer">
   </form>
   </section>
@@ -97,6 +97,7 @@
   
 </main>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script defer src="/js/contact.js"></script>
 
 

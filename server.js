@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import session from 'express-session';
 import router from './app/router.js';
-import { exec } from "child_process";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
