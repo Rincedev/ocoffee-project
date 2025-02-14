@@ -23,12 +23,12 @@ router.get("/admin/login", adminController.renderAdminConnectionPage)
 router.post("/admin/login", adminController.giveUserAdminRole)
 router.get("/logout", adminController.adminLogout)
 router.get("/admin", isAdmin, adminController.renderAdminPage)
-router.get("/admin/product/add", adminController.renderAddProductPage);
+router.get("/admin/product/add", isAdmin, adminController.renderAddProductPage);
 router.post("/admin/product/add", upload.single('uploaded_file'), adminController.addProductToDatabase);
-router.get("/admin/product/modify", adminController.renderModifyProductsPage)
-router.get("/admin/product/modify/search", adminController.foundProductsByNameOrReference)
-router.get("/admin/product/delete/:id", adminController.deleteProductFromDatabase)
-router.get("/admin/product/modify/:id", adminController.renderModifyProductPage)
+router.get("/admin/product/modify", isAdmin, adminController.renderModifyProductsPage)
+router.get("/admin/product/modify/search", isAdmin, adminController.foundProductsByNameOrReference)
+router.get("/admin/product/delete/:id", isAdmin, adminController.deleteProductFromDatabase)
+router.get("/admin/product/modify/:id", isAdmin, adminController.renderModifyProductPage)
 router.post("/admin/product/modify", adminController.modifyProduct)
 
 
