@@ -31,15 +31,19 @@ router.get("/admin/product/delete/:id", adminController.deleteProductFromDatabas
 router.get("/admin/product/modify/:id", adminController.renderModifyProductPage)
 router.post("/admin/product/modify", adminController.modifyProduct)
 
-router.get('/test-cookie', (req, res) => {
-  res.cookie('session_test', 'test_value', {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', // En production, utilise secure
-    maxAge: 1000 * 60 * 60 * 24, // 1 jour
-  });
-  res.send('Cookie Set');
+router.get('/test-session', async (req, res) => {
+  if (process.env.NODE_ENV === "production") {
+    const redisClient = createClient({ url: process.env.REDIS_URL });
+    await redisClient.connect();
+    // Vérifie si Redis est bien connecté avant de procéder
+    redisClient.on("connect", () => console.log("Connected to Redis"));
+    redisClient.on("error", (err) => console.error("Redis Error:", err));
+  }
+  
+  // Utilisation de la session après avoir vérifié Redis
+  req.session.test = 'value'; // Ceci va générer le cookie de session
+  res.send('Session cookie set');
 });
-
 
 router.use((req, res) => {
   res.status(404).render("404", { title: " - Erreur 404" });
