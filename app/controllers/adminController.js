@@ -46,7 +46,7 @@ const adminController = {
     });
     
     console.log(req.session)   
-    res.redirect('/admin');
+    res.redirect('/login/admin');
     
     } catch (error) {
       console.error(error);
