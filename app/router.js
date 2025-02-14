@@ -31,7 +31,7 @@ router.get("/admin/product/delete/:id", adminController.deleteProductFromDatabas
 router.get("/admin/product/modify/:id", adminController.renderModifyProductPage)
 router.post("/admin/product/modify", adminController.modifyProduct)
 
-app.get('/test-cookie', (req, res) => {
+router.get('/test-cookie', (req, res) => {
   res.cookie('session_test', 'test_value', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production', // En production, utilise secure
