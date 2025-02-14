@@ -35,17 +35,14 @@ const adminController = {
       return res.status(401).json({ message: "Mot de passe incorrect" });
     }
 
-    req.session.cookie.username = user.username;
-    req.session.cookie.isAdmin = user.admin;
+    req.session.username = user.username;
+    req.session.isAdmin = user.admin;
+    await req.session.save();
+
     
-    req.session.save(err => {  // 🔥 Forcer la sauvegarde pour éviter la perte
-      if (err) {
-        console.error("Erreur lors de la sauvegarde de session:", err);
-        return res.status(500).json({ error: "Erreur interne" });
-      }
-      console.log(req.session)   
-      res.redirect('/login/admin');      
-    });
+    console.log(req.session)   
+    res.redirect('/login/admin');      
+    
      
     
     } catch (error) {
