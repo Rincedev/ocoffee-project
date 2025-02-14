@@ -38,7 +38,8 @@ const adminController = {
     req.session.user = {
     username: user.username,
     isAdmin: user.admin    
-    };    
+    };
+    console.log(req.session.user)   
     res.redirect('/admin');
     
     } catch (error) {
