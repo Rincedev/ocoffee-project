@@ -59,7 +59,7 @@ async function startServer() {
       cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 * 24 },
     });
   }
-
+  console.log("Session ID:", req.sessionID);
   app.use(sessionMiddleware);
 
   // Configurer le moteur de rendu (EJS)
