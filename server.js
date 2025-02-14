@@ -15,6 +15,7 @@ const __dirname = path.dirname(__filename);
 export default __dirname;
 
 const app = express();
+app.set("trust proxy", 1);
 
 const pool = new pg.Pool({
   connectionString: process.env.PG_URL, // Assure-toi que cette variable est définie dans ton environnement
@@ -36,8 +37,7 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: process.env.NODE_ENV === "production", // Utiliser secure en production
-      httpOnly: true,
-      sameSite: "lax",
+      httpOnly: true,      
       maxAge: 1000 * 60 * 60 * 24, // Durée de la session (ici 1 jour)
     },
   })
