@@ -20,11 +20,14 @@ async function startServer() {
 
   if (process.env.NODE_ENV === "production") {
     // Création du client Redis en production
-    const redisClient = createClient({ url: process.env.REDIS_URL });
-
-    redisClient.on("error", (err) => console.error("Redis Error:", err));
+    const redisClient = createClient({ url: process.env.REDIS_URL,  socket: { family: 4 } });
+    
 
     await redisClient.connect();
+    redisClient.on("error", (err) => console.error("❌ Redis Error:", err));
+    redisClient.on("reconnecting", () => console.log("🔄 Redis essaie de se reconnecter..."));
+    redisClient.on("end", () => console.log("🚨 Redis connexion terminée"));
+    redisClient.on("error", (err) => console.error("Redis Error:", err));
 
     const redisStore = new RedisStore({
       client: redisClient,
