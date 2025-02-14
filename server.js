@@ -13,6 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 export default __dirname;
 
+// Créer une app
 const app = express();
 
 async function startServer() {
@@ -20,23 +21,11 @@ async function startServer() {
 
   if (process.env.NODE_ENV === "production") {
     // Création du client Redis en production
-    const redisClient = createClient({ url: process.env.REDIS_URL,  socket: { family: 4 } });
-    
-    redisClient.on("error", (err) => console.error("❌ Redis Error:", err));
-    redisClient.on("reconnecting", () => console.log("🔄 Redis essaie de se reconnecter..."));
-    redisClient.on("end", () => console.log("🚨 Redis connexion terminée"));
+    const redisClient = createClient({ url: process.env.REDIS_URL });
     redisClient.on("error", (err) => console.error("Redis Error:", err));
+    redisClient.on("connect", () => console.log("Connected to Redis"));
 
-    (async () => {
-      try {
-          await redisClient.connect();
-          console.log("✅ Redis connecté !");
-      } catch (err) {
-          console.error("❌ Impossible de connecter Redis:", err);
-      }
-  })();
-    
-    
+    await redisClient.connect();
 
     const redisStore = new RedisStore({
       client: redisClient,
@@ -46,9 +35,9 @@ async function startServer() {
     sessionMiddleware = session({
       store: redisStore,
       secret: process.env.SESSION_SECRET,
-      resave: true,
+      resave: false,
       saveUninitialized: false,
-      cookie: { secure: true, httpOnly: true, maxAge: 1000 * 60 * 60 * 24, sameSite: 'None' },
+      cookie: { secure: true, httpOnly: true, maxAge: 1000 * 60 * 60 * 24 },
     });
   } else {
     // Utilisation de la session Express classique en développement
@@ -59,11 +48,7 @@ async function startServer() {
       cookie: { secure: false, httpOnly: true, maxAge: 1000 * 60 * 60 * 24 },
     });
   }
-  app.use((req, res, next) => {
-    console.log("Session ID:", req.sessionID);  // Vérifier si un ID de session est généré
-    next();
-  });
-  
+
   app.use(sessionMiddleware);
 
   // Configurer le moteur de rendu (EJS)
@@ -76,13 +61,14 @@ async function startServer() {
   // Ajout d'un body parser
   app.use(express.urlencoded({ extended: true }));
   app.use(localsMiddleware.listAllCategories);
+
   // Brancher le routeur
   app.use(router);
 
   // Lancer un serveur
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
-    // console.log(`Server started at http://localhost:${port}`);
+    // console.log(Server started at http://localhost:${port});
   });
 }
 
