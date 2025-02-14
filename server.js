@@ -40,7 +40,7 @@ async function startServer() {
 
     const redisStore = new RedisStore({
       client: redisClient,
-      disableTouch: true,
+      // disableTouch: true,
     });
 
     sessionMiddleware = session({
