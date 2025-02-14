@@ -50,7 +50,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(localsMiddleware.listAllCategories);
 
-app.use(router);
+
 app.get("/set-session", (req, res) => {
   req.session.username = "testuser";
   req.session.isAdmin = true;
@@ -64,6 +64,7 @@ app.get("/get-session", (req, res) => {
     res.send("No session data found");
   }
 });
+app.use(router);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
