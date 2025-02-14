@@ -42,11 +42,11 @@ const adminController = {
       if (err) {
         console.error("Erreur lors de la sauvegarde de session:", err);
         return res.status(500).json({ error: "Erreur interne" });
-      }      
+      }
+      console.log(req.session)   
+      res.redirect('/login/admin');      
     });
-    
-    console.log(req.session)   
-    res.redirect('/login/admin');
+     
     
     } catch (error) {
       console.error(error);
