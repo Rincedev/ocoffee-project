@@ -51,6 +51,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(localsMiddleware.listAllCategories);
 
 app.use(router);
+app.get("/set-session", (req, res) => {
+  req.session.username = "testuser";
+  req.session.isAdmin = true;
+  res.send("Session data set");
+});
+
+app.get("/get-session", (req, res) => {
+  if (req.session.username) {
+    res.send(`Username: ${req.session.username}, isAdmin: ${req.session.isAdmin}`);
+  } else {
+    res.send("No session data found");
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
