@@ -66,18 +66,12 @@ async function startServer() {
   // Lancer un serveur
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
-    console.log(Server started at http://localhost:${port});
+    // console.log(`Server started at http://localhost:${port}`);
   });
 }
 
-
-
-
-
-
-
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Listening at http://localhost:${PORT}`);
+// Lancer l'application
+startServer().catch((err) => {
+  console.error("Error starting server:", err);
 });
+
