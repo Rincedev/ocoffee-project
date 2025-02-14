@@ -36,8 +36,14 @@ const adminController = {
     }
 
     req.session.username = user.username;
-    // req.session.isAdmin = user.admin;
-    req.session.isAdmin = true;
+    req.session.isAdmin = user.admin;
+    
+    req.session.save(err => {  // 🔥 Forcer la sauvegarde pour éviter la perte
+      if (err) {
+        console.error("Erreur lors de la sauvegarde de session:", err);
+        return res.status(500).json({ error: "Erreur interne" });
+      }      
+    });
     
     console.log(req.session)   
     res.redirect('/admin');
