@@ -40,13 +40,13 @@ async function startServer() {
 
     const redisStore = new RedisStore({
       client: redisClient,
-      // disableTouch: true,
+      disableTouch: true,
     });
 
     sessionMiddleware = session({
       store: redisStore,
       secret: process.env.SESSION_SECRET,
-      resave: false,
+      resave: true,
       saveUninitialized: false,
       cookie: { secure: true, httpOnly: true, maxAge: 1000 * 60 * 60 * 24, sameSite: 'None' },
     });
