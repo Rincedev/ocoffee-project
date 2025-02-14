@@ -35,8 +35,8 @@ const adminController = {
       return res.status(401).json({ message: "Mot de passe incorrect" });
     }
 
-    req.session.username = user.username;
-    req.session.isAdmin = user.admin;
+    req.session.cookie.username = user.username;
+    req.session.cookie.isAdmin = user.admin;
     
     req.session.save(err => {  // 🔥 Forcer la sauvegarde pour éviter la perte
       if (err) {
