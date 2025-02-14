@@ -31,6 +31,15 @@ router.get("/admin/product/delete/:id", adminController.deleteProductFromDatabas
 router.get("/admin/product/modify/:id", adminController.renderModifyProductPage)
 router.post("/admin/product/modify", adminController.modifyProduct)
 
+app.get('/test-cookie', (req, res) => {
+  res.cookie('session_test', 'test_value', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production', // En production, utilise secure
+    maxAge: 1000 * 60 * 60 * 24, // 1 jour
+  });
+  res.send('Cookie Set');
+});
+
 
 router.use((req, res) => {
   res.status(404).render("404", { title: " - Erreur 404" });
