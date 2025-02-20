@@ -10,7 +10,7 @@ CREATE TABLE user_session(
 );
 
 INSERT INTO user_session("username", "password", "admin") 
-VALUES ('admin', '$2a$10$tG9yGlDwvkPYtj567PXPGeE.8zrpi1nK1rSxWGZ9wBC2woHiO.KcO', true);
+VALUES ('admin', '$2a$10$4QheOZAlu7Vi1Pw.lXmOu.LV8hiKpBs1mUQZpsbvcgU4IAUd1zO3.', true);
 
 DROP TABLE IF EXISTS "product";
 

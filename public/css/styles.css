@@ -388,6 +388,7 @@ table th {
 
 
 @media screen and (min-width: 768px) {
+  
   .presentation-container,
   .product-container {
     flex-direction: row;
@@ -461,6 +462,10 @@ table th {
   
 }
 @media screen and (min-width: 1400px) {
+  main {   
+    width: 75%;
+    margin: auto;
+  }
   .arrow-icon {
     display: none;
   }
