@@ -27,7 +27,7 @@ html {
   background-color: var(--light-color);
 }
 body {
-  color: var(--primary-color);
+  color: #402b19;
 }
 
 .navbar.is-fixed-top {
@@ -75,10 +75,15 @@ section {
 .presentation-text-container {
   padding: 4rem;
 }
+.presentation-img-container{
+  width: 90%;
+  margin: auto;
+}
 .presentation-img-container img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 h1 {
@@ -99,8 +104,7 @@ h5 {
 p {
   margin-bottom: 0.5rem;
 }
-.btn {
-  box-shadow: 0px 0px 8px 2px var(--light-color);
+.btn {  
   padding: 5px 10px 5px 10px;
   background: var(--dark-color);
   color: var(--light-color);
@@ -111,13 +115,20 @@ p {
 .btn:hover {
   scale: 1.1;
 }
+.break {
+  margin: auto;
+  margin-top: 2rem;
+  background-color: #402b19;
+  width: 70%;
+  height: 2px;
+}
 
 .slider-container {
   position: relative;
-  background-color: var(--primary-color);
+  background-color: var(--light-color);
+  padding-bottom: 2rem;
 }
-.slider-container h3 {
-  color: var(--light-color);
+.slider-container h3 {   
   text-align: center;
   padding-top: 2rem;
 }
@@ -129,19 +140,20 @@ p {
   gap: 6rem;
 }
 .coffee-card {
+  box-shadow: 2px -1px 1px 1px var(--accent-color);
   background-color: var(--accent-color);
   color: var(--light-color);
   min-width: 100%;
   border-radius: 15px;
   box-shadow: 0px 0px 8px 2px var(--light-color);
 }
-.card-img {
+.card-img {  
   height: 220px;
   width: 100%;
+  padding: 1.5rem;
 }
 .coffee-card img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-radius: 15px;
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -157,7 +169,7 @@ p {
 }
 .card-text-content .btn {
   position: absolute;
-  top: 1rem;
+  bottom: -0.6rem;
   right: 1rem;
 }
 .price-container {
@@ -216,8 +228,9 @@ footer {
 }
 #view-all-btn {
   position: absolute;
-  left: 45%;
-  bottom: 2rem;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);  
 }
 .product-container {
   display: flex;
@@ -377,18 +390,9 @@ table th {
 .admin-product-btn--modify {
   border-bottom-right-radius: 15px;
 }
-#search-bar {
-  display: flex;
-  flex-direction: column;
-}
-#search-bar input {
-  max-width: 200px;
-  margin-bottom: 0.5rem;
-}
 
 
 @media screen and (min-width: 768px) {
-  
   .presentation-container,
   .product-container {
     flex-direction: row;
@@ -408,12 +412,7 @@ table th {
   .slider-container {
     padding-bottom: 3rem;
   }
-  #view-all-btn {
-    position: absolute;
-    left: 50%;
-    bottom: 2rem;
-    transform: translateX(-50%);
-  }
+  
   .product-container {
     height: 85vh;
   }
@@ -426,9 +425,10 @@ table th {
   .product-img {
     max-width: 50%;
     min-width: 50%;
-    height: 100%;
+    height: 400px;
     overflow: hidden;
   }
+  
   .product-img img {
     height: 100%;
     width: 100%;
@@ -462,9 +462,9 @@ table th {
   
 }
 @media screen and (min-width: 1400px) {
-  main {   
-    width: 75%;
-    margin: auto;
+  main {
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
   .arrow-icon {
     display: none;
