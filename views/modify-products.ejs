@@ -38,8 +38,7 @@
                 Oui
               <% }; %>  
               </p>
-          </div>
-          <a class="btn" href="/product/<%= product.id %>">Découvrir</a>
+          </div>          
         </div>
         <div class="admin-product-btn-container">
           <a class="admin-product-btn admin-product-btn--delete" href="/admin/product/delete/<%= product.id %>" data-product-name="<%= product.name %>" onclick="return confirmDeletion(event, this)">Supprimer</a>
