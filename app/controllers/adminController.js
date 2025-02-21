@@ -41,7 +41,7 @@ const adminController = {
 
     
     console.log(req.session)   
-    res.redirect('/login/admin');      
+    res.redirect('/admin');      
     
      
     
