@@ -1,3 +1,21 @@
+async function contactForm({ token }) {
+  // Include the token for server-side assessment.
+  // Include the user input values from your form to pass to the backend.
+  const body = {
+    token,
+  };
+  // Code for fetching the assessment from server-side goes here.
+  // Refer to demo app backend code for more information.
+  // If you already use a library or framework for event handlers, you 
+  // can handle events your usual way.
+  const result = await fetchServerResponse({
+    body,
+    url: "/verify-recaptcha",
+  });
+
+  return result;  
+}
+ 
  // Initialisation EmailJS
  emailjs.init("zk37Ij7zhrcXUWD5V");
 
@@ -12,19 +30,13 @@
    if (!confirmation) {
      console.log("Envoi du message annulé.");
      return;
-   }
+   }   
+   grecaptcha.enterprise.ready(async () => {
+    const token = await grecaptcha.enterprise.execute('6Ld0_NYqAAAAACzmWzW2J_dGeWfaxMExl8dJJ9KM', { action: "contact_form" });
+    const result = await contactForm({ token });
+  });
 
-   // Exécuter reCAPTCHA pour récupérer le token
-   const token = await grecaptcha.enterprise.execute('6Ld0_NYqAAAAACzmWzW2J_dGeWfaxMExl8dJJ9KM', { action: "contact_form" });
-
-   // Vérifier le token reCAPTCHA côté serveur
-   const recaptchaResponse = await fetch("/verify-recaptcha", {
-     method: "POST",
-     body: JSON.stringify({ token }),
-     headers: { "Content-Type": "application/json" },
-   });
-
-   const result = await recaptchaResponse.json();
+   
 
    if (!result.success) {
      alert("Échec du test reCAPTCHA, veuillez réessayer.");

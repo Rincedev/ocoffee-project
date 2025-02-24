@@ -1,33 +1,28 @@
 import { RecaptchaEnterpriseServiceClient } from "@google-cloud/recaptcha-enterprise";
 import 'dotenv/config';
 
-const projectID = process.env.RECAPTCHA_PROJECT_ID;
-const recaptchaKey = process.env.RECAPTCHA_SITE_KEY;
+export async function createAssessment(
+  projectId,
+  recaptchaSiteKey,
+  token,
+  expectedAction
+) {
+  // <!-- ATTENTION: reCAPTCHA Example (Server Part 2/2) Starts -->
+  const client = new RecaptchaEnterpriseServiceClient();
 
-export async function verifyRecaptcha(token) {
-  try {
-    const client = new RecaptchaEnterpriseServiceClient();
-    const projectPath = `projects/${projectID}`; // Correction ici !
-
-    const request = {
-      assessment: {
-        event: { token, siteKey: recaptchaKey },
+  // Build the assessment request.
+  const [response] = await client.createAssessment({
+    parent: `projects/${projectId}`,
+    assessment: {
+      // Set the properties of the event to be tracked.
+      event: {
+        siteKey: recaptchaSiteKey,
+        token: token,
+        expectedAction: expectedAction,
       },
-      parent: projectPath,
-    };
+    },
+  });
+  // <!-- ATTENTION: reCAPTCHA Example (Server Part 2/2) Ends -->
+  return response;
+};
 
-    const [response] = await client.createAssessment(request);
-
-    if (!response.tokenProperties.valid) {
-      console.error("Token reCAPTCHA invalide :", response.tokenProperties.invalidReason);
-      return false;
-    }
-
-    console.log("Score reCAPTCHA :", response.riskAnalysis.score);
-    return response.riskAnalysis.score >= 0.5;
-
-  } catch (error) {
-    console.error("Erreur lors de la vérification reCAPTCHA :", error);
-    return false;
-  }
-}
