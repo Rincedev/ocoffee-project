@@ -24,15 +24,24 @@ const mainController = {
   },
 
   async verifyCaptcha(req, res) {
-    const { token } = req.body;
-    if (!token) return res.status(400).json({ success: false, error: "Token manquant" });
-
-    const isValid = await verifyRecaptcha(token);
-    if (!isValid) return res.status(403).json({ success: false, error: "reCAPTCHA non validé" });
-
-    res.json({ success: true });
+    try {
+      const { token } = req.body;
+      if (!token) {
+        return res.status(400).json({ success: false, error: "Token manquant" });
+      }
+  
+      const isValid = await verifyRecaptcha(token);
+      if (!isValid) {
+        return res.status(403).json({ success: false, error: "reCAPTCHA non validé" });
+      }
+  
+      res.json({ success: true });
+  
+    } catch (error) {
+      console.error("Erreur dans verifyCaptcha :", error);
+      res.status(500).json({ success: false, error: "Erreur serveur" });
+    }
   }
-
 }
 
 export default mainController;
