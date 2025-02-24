@@ -13,6 +13,7 @@ const router = express.Router();
 router.get("/", mainController.renderHomePage);
 router.get("/about", mainController.renderAboutPage);
 router.get("/contact", mainController.renderContactPage);
+router.post("/verify-recaptcha", mainController.verifyCaptcha);
 
 router.get("/catalog", catalogController.renderCatalogPage);
 router.get("/catalog/all", catalogController.renderAllCatalogPage);
